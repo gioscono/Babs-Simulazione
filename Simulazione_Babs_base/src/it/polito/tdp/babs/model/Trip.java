@@ -22,6 +22,13 @@ public class Trip {
 		this.endStationID = endStationID;
 	}
 
+	
+	@Override
+	public String toString() {
+		return this.getStartStationID()+" "+this.getEndStationID()+":"+this.duration;
+	}
+
+
 	public int getTripID() {
 		return tripID;
 	}
@@ -69,4 +76,28 @@ public class Trip {
 	public void setEndStationID(int endStationID) {
 		this.endStationID = endStationID;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + tripID;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Trip other = (Trip) obj;
+		if (tripID != other.tripID)
+			return false;
+		return true;
+	}
+	
+	
 }
